@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bookManageMapper">
+	<!-- 책 정보 페이지 기능 -->
+	<select id="selectData"  resultType="bookDetailDTO">
+		SELECT BOOK_CODE AS bookCode
+			 , BOOK_TITLE AS bookTitle
+			 , BOOK_AUTHOR AS bookAuthor
+			 , BOOK_INFO AS bookInfo
+			 , BOOK_PRICE AS bookPrice
+			 , BOOK_DISCOUNT AS bookDiscount
+			 , ISBN AS isbn
+			 , BOOK_CATEGORY AS bookCategory
+			 , STOCK AS stock
+			 , PUBLISHER AS publisher
+			 , BOOK_CONDITION AS bookCondition
+			 , BOOK_CONDITION_INFO AS bookConditionInfo
+			 , BOOK_IMG_PATH AS bookImgPath
+			 , CREATE_DATE AS createDate
+		FROM BOOK
+		WHERE BOOK_CODE = #{bookCode}
+	</select>
+	<select id="selectSort"  resultType="bookDetailDTO">
+		SELECT RNUM
+			 , bookCode, bookTitle, bookAuthor
+			 , bookInfo, bookPrice, bookDiscount
+			 , isbn, bookCategory, stock 
+			 , publisher, bookCondition, bookConditionInfo
+			 , bookImgPath , createDate
+		FROM	 
+		(SELECT ROWNUM AS RNUM, BOOK_CODE AS bookCode
+			 , BOOK_TITLE AS bookTitle
+			 , BOOK_AUTHOR AS bookAuthor
+			 , BOOK_INFO AS bookInfo
+			 , BOOK_PRICE AS bookPrice
+			 , BOOK_DISCOUNT AS bookDiscount
+			 , ISBN AS isbn
+			 , BOOK_CATEGORY AS bookCategory
+			 , STOCK AS stock
+			 , PUBLISHER AS publisher
+			 , BOOK_CONDITION AS bookCondition
+			 , BOOK_CONDITION_INFO AS bookConditionInfo
+			 , BOOK_IMG_PATH AS bookImgPath
+			 , CREATE_DATE AS createDate
+		FROM BOOK
+		ORDER BY CREATE_DATE DESC)
+		WHERE <![CDATA[ ROWNUM <= 6]]>
+		AND <![CDATA[ ROWNUM >= 1]]>
+	</select>
+	<!-- 장바구니 기능 -->
+	<select id="selectBasketData"  parameterType="map" resultType="bookBasketDTO">
+		SELECT BASKET_CODE AS basketCode
+			 , MEMBER_ID AS memberId
+			 , BOOK_CODE AS bookCode
+			 , QUANTITY AS quantity
+			 , DELIVERY_FEE AS deluveryFee
+		FROM BASKET
+		WHERE BOOK_CODE = #{bookCode}
+		AND MEMBER_ID = #{memberId}
+	</select>
+	<select id="selectAllBasketData"  resultType="bookDetailDTO" parameterType="bookBasketDTO">
+		SELECT b.BOOK_CODE AS bookCode
+			 , b.BOOK_TITLE AS bookTitle
+			 , b.BOOK_AUTHOR AS bookAuthor
+			 , b.BOOK_INFO AS bookInfo
+			 , b.BOOK_PRICE AS bookPrice
+			 , b.BOOK_DISCOUNT AS bookDiscount
+			 , b.ISBN AS isbn
+			 , b.BOOK_CATEGORY AS bookCategory
+			 , b.STOCK AS stock
+			 , b.PUBLISHER AS publisher
+			 , b.BOOK_CONDITION AS bookCondition
+			 , b.BOOK_CONDITION_INFO AS bookConditionInfo
+			 , b.BOOK_IMG_PATH AS bookImgPath
+			 , b.CREATE_DATE AS createDate
+		FROM BOOK b
+		JOIN BASKET bb
+		  ON b.BOOK_CODE = bb.BOOK_CODE 
+		WHERE bb.MEMBER_ID = #{memberId}
+	</select>
+	<insert id="insertBasketData" parameterType="bookBasketDTO">
+		INSERT INTO BASKET(BASKET_CODE 
+			 , MEMBER_ID 
+			 , BOOK_CODE 
+			 , QUANTITY 
+			 , DELIVERY_FEE)
+		VALUES(SQU_BASKET.NEXTVAL
+			 , #{memberId}
+			 , #{bookCode}
+			 , #{quantity}
+			 , #{deliveryFee})
+	</insert>
+	<delete id="removeBasketData" parameterType="map">
+		DELETE FROM BASKET
+		WHERE MEMBER_ID = #{memberId}
+		AND BOOK_CODE = #{bookCode}
+	</delete>
+	<delete id="removeBasketCheckData" parameterType="map">
+		DELETE FROM BASKET
+		WHERE MEMBER_ID = #{memberId}
+		AND BOOK_CODE IN
+		<foreach collection="bookCode" item="item" index="index" open="(" separator="," close=")" >
+		 #{item}
+		</foreach>
+	</delete>
+	<!-- 보관함 기능 -->
+	<select id="selectLockerData" parameterType="map" resultType="bookLockerDTO">
+		SELECT LOCKER_CODE
+			 , MEMBER_ID
+			 , BOOK_CODE
+			 , QUANTITY
+			 , DELIVERY_FEE
+		FROM LOCKER
+		WHERE MEMBER_ID = #{memberId}
+		AND BOOK_CODE = #{bookCode}
+	</select>
+	<select id="selectAllLockerData"  resultType="bookDetailDTO" parameterType="bookLockerDTO">
+		SELECT b.BOOK_CODE AS bookCode
+			 , b.BOOK_TITLE AS bookTitle
+			 , b.BOOK_AUTHOR AS bookAuthor
+			 , b.BOOK_INFO AS bookInfo
+			 , b.BOOK_PRICE AS bookPrice
+			 , b.BOOK_DISCOUNT AS bookDiscount
+			 , b.ISBN AS isbn
+			 , b.BOOK_CATEGORY AS bookCategory
+			 , b.STOCK AS stock
+			 , b.PUBLISHER AS publisher
+			 , b.BOOK_CONDITION AS bookCondition
+			 , b.BOOK_CONDITION_INFO AS bookConditionInfo
+			 , b.BOOK_IMG_PATH AS bookImgPath
+			 , b.CREATE_DATE AS createDate
+		FROM BOOK b
+		JOIN LOCKER l
+		  ON b.BOOK_CODE = l.BOOK_CODE
+		WHERE l.MEMBER_ID = #{memberId}
+	</select>
+	<insert id="insertLockerData" parameterType="bookLockerDTO">
+		INSERT INTO LOCKER(LOCKER_CODE
+			 , MEMBER_ID
+			 , BOOK_CODE
+			 , QUANTITY
+			 , DELIVERY_FEE)
+		VALUES(SQU_LOCKER.NEXTVAL
+			 , #{memberId}
+			 , #{bookCode}
+			 , #{quantity}
+			 , #{deliveryFee})
+	</insert>
+	<delete id="removeLockerData" parameterType="map">
+		DELETE FROM LOCKER
+		WHERE MEMBER_ID = #{memberId}
+		AND BOOK_CODE = #{bookCode}
+	</delete>
+	<delete id="removeLockerCheckData" parameterType="map">
+		DELETE FROM LOCKER
+		WHERE MEMBER_ID = #{memberId}
+		AND BOOK_CODE IN
+		<foreach collection="bookCode" item="item" index="index" open="(" separator="," close=")" >
+		 #{item}
+		</foreach>
+	</delete>
+	<!-- 결제페이지 부분 -->
+	<select id="selectOrderBookData"  parameterType="map" resultType="bookDetailDTO">
+		SELECT BOOK_CODE AS bookCode
+			 , BOOK_TITLE AS bookTitle
+			 , BOOK_AUTHOR AS bookAuthor
+			 , BOOK_INFO AS bookInfo
+			 , BOOK_PRICE AS bookPrice
+			 , BOOK_DISCOUNT AS bookDiscount
+			 , ISBN AS isbn
+			 , BOOK_CATEGORY AS bookCategory
+			 , STOCK AS stock
+			 , PUBLISHER AS publisher
+			 , BOOK_CONDITION AS bookCondition
+			 , BOOK_CONDITION_INFO AS bookConditionInfo
+			 , BOOK_IMG_PATH AS bookImgPath
+			 , CREATE_DATE AS createDate
+		FROM BOOK
+		WHERE BOOK_CODE IN
+		<foreach collection="bookCode" item="item" index="index" open="(" separator="," close=")">
+		#{item}
+		</foreach>
+	</select>
+	<select id="selectBookStocksData"  parameterType="map" resultType="bookDetailDTO">
+		SELECT BOOK_CODE AS bookCode
+			 , BOOK_TITLE AS bookTitle
+			 , BOOK_AUTHOR AS bookAuthor
+			 , BOOK_INFO AS bookInfo
+			 , BOOK_PRICE AS bookPrice
+			 , BOOK_DISCOUNT AS bookDiscount
+			 , ISBN AS isbn
+			 , BOOK_CATEGORY AS bookCategory
+			 , STOCK AS stock
+			 , PUBLISHER AS publisher
+			 , BOOK_CONDITION AS bookCondition
+			 , BOOK_CONDITION_INFO AS bookConditionInfo
+			 , BOOK_IMG_PATH AS bookImgPath
+			 , CREATE_DATE AS createDate
+		FROM BOOK
+		WHERE BOOK_CODE IN
+		<foreach collection="bookCodes" item="item" index="index" open="(" separator="," close=")">
+		#{item}
+		</foreach>
+	</select>
+	<update id="updateMileage" parameterType="map" >
+		UPDATE MEMBERS
+		SET MILEAGE = #{mileage}
+		WHERE MEMBER_ID = #{memberId}
+	</update>
+	<insert id="insertOrderData" parameterType="orderDTO">
+		INSERT INTO ORDER_INFO(ORDER_CODE
+			,BOOK_CODE, BOOK_TITLE, ORDER_QUANTITY
+			,USE_MILEAGE, SAVE_MILEAGE, ORDER_PRICE
+			,MEMBER_ID, POSTAL_CODE, ADDRESS
+			,DETAIL_ADDRESS, PHONE, DELIVERY_FEE
+			,REFUNDABLE_DATE, ORDER_DATE) 
+		VALUES(#{orderCode},#{bookCode},#{bookTitle}
+			  ,#{quantity},#{useMileage},#{saveMileage}
+			  ,#{orderPrice},#{memId},#{postalCode}
+			  ,#{address},#{detailAddress},#{phone}
+			  ,#{deliveryFee},SYSDATE+1,SYSDATE)
+	</insert>
+	<update id="updateQuantity" parameterType="java.util.List">
+	 <foreach collection="list" item="item" separator=";" open="DECLARE BEGIN" close="; END;">
+		UPDATE BOOK
+		SET STOCK = #{item.stock}
+		<where>
+			BOOK_CODE = #{item.bookcode}
+		</where>
+	</foreach>	
+	</update>
+</mapper>  

@@ -1,0 +1,47 @@
+.btn--rec {
+    width: 28.5rem;
+    height: 5.5rem;
+    border: none;
+    font-weight: 700;
+}
+
+.btn--rec:hover {
+    cursor: pointer;
+}
+
+.btn--white {
+    background-color: white;
+    border: 1px solid #616161;
+    color: #616161;
+}
+
+.btn--blue {
+    background-color: var(--blue);
+    color: white;
+}
+
+.btn--green {
+    background-color: var(--green);
+    color: white;
+}
+
+.btn--yellow {
+    background-color: #fae100;
+}
+
+.btn--gray {
+    background-color: #616161;
+    color: white;
+}
+
+.btn--w120h50 {
+    width: 12rem;
+    height: 5rem;
+}
+
+.dot--red {
+    display: block;
+    width: 0.4rem;
+    height: 0.4rem;
+    background-color: var(--red);
+}

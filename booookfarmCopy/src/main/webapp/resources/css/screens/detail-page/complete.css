@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+.com_title{
+	margin: 0 0 5rem 0;	
+}
+
+.com_alert{
+	font-size: 4rem;
+}
+
+.c_address_info{
+	display: flex;
+	margin: 10rem 0 0 0;
+}
+
+.c_title{
+	padding: 0 0 0 28rem;
+	font-size: 2rem;
+}
+
+.c_info{
+	padding: 0 0 0 7rem;
+	height: 20rem;
+}
+
+.sty_input{
+	padding: 0 0 2rem 0;
+	outline: none;
+}
+
+.sty_input>input:focus{
+	outline:none;
+}
+
+.c_postal, .c_address, .c_detail_address{
+	background-color: white;
+	border: 0 solid;
+	width: 60rem;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.c_btn_menu{
+	height:15rem;
+	line-height: 15rem;
+}
+
+.c_btn_menu>button{
+	align: center;
+	width: 20rem;
+	height: 7rem;
+	line-height: 7rem;
+	font-size: 1.8rem;
+	font-weight: bold;
+	margin: 0 1rem 0 1rem;
+	border: none;
+}
+
+.shop_btn{
+	background-color: rgb(35, 122, 246);
+	color: white;
+}
+
+.shop_btn:hover, .cancel_btn:hover {
+	background-color: rgb(200, 200, 200);
+	cursor: pointer;
+}
+

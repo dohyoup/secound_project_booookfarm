@@ -1,0 +1,265 @@
+@charset "UTF-8";
+
+.basket-container{
+	position: relative;
+	bottom: 4.4rem;
+}
+
+.basket-layout{
+	text-align: center;
+	width: 114rem;
+	padding: 0 0 6rem 0;
+}
+
+.basket-title{
+	font-size: 3rem;
+	height:6.2rem;
+}
+
+.basket-icon{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.bas-icon{
+	margin: 0 1.5rem 0 0;
+}
+
+.bas-icon:hover, .bas-name:hover{
+	cursor: pointer;
+}
+
+.basket-book-minus:hover, .basket-book-plus:hover{
+	cursor: pointer;
+}
+
+.bas-doticon{
+	margin: 0 1.5rem 0 1.5rem;
+}
+
+.total-delete-button{
+	background-color: white;
+	border: 1px solid #616161;
+	color: #616161;
+	font-weight: bold;
+	height: 4rem;
+}
+
+.total-delete-button:hover{
+	border: 1px solid #202020;
+	color: #202020;
+	cursor:pointer;
+}
+
+.book-list-sort{
+	display: flex;	
+}
+
+.title-table{
+	margin: 1.5rem 0 1.5rem 0;
+}
+
+.book-list{
+	border-top: 2px solid;
+	margin: 1rem 0 1rem 0;
+	width:91rem;
+}
+
+.element-table{
+	font-size: 1.3rem;
+}
+
+.total-checkbox{
+	position: relative;
+	top: 0.2rem;
+	width: 2rem;
+	height: 2rem;
+}
+
+.checkbox{
+	width: 1.6rem;
+	height: 1.6rem;
+	accent-color: rgb(255, 64, 129);
+}
+
+.element-name-table{
+	font-size: 1.4rem;
+	font-weight: bold;
+	height: 6rem;
+}
+
+.list-element-select, .accurate-select{
+	width: 4rem;
+	padding: 0 0 0 0.2rem;	
+}
+
+.list-element-info, .accurate-info-layout{
+	width: 28.4rem;
+}
+
+.list-element-price, .accurate-price-layout{
+	width: 11.2rem;
+}
+
+.list-element-quantity, .accurate-quantity-layout{
+	width: 14rem;
+}
+
+.list-element-seller, .accurate-seller-layout{
+	width: 13.2rem;
+}
+
+.list-element-delivery, .accurate-delivery-fee-layout{
+	width: 8rem;
+}
+
+.list-element-delete, .delete-select-layout{
+	width: 10.6rem;
+}
+
+.element-table{
+	border-bottom: 1px solid;
+	border-color: rgb(224, 224, 224);
+}
+
+.accurate-info-layout, .accurate-quantity-layout{
+	display: flex;
+	align-items: center;
+}
+
+.accurate-quantity-layout{
+	justify-content: center;
+}
+
+.info-img{
+	margin: 0 2rem 0 2rem;
+}
+
+.basket--img{
+	width: 6.8rem;
+	height: 9.8rem;
+	object-fit: cover;
+}
+
+.basket-book-price{
+	margin: 0 0 1rem 0;
+}
+
+.quantity-num{
+	padding: 0 1rem 0 1rem;
+}
+
+.checkbox, .accurate-select, .accurate-price,
+.accurate-quantity, .accurate-seller, .accurate-delivery-fee,
+.delete-select {
+	display: table-cell;
+    vertical-align: middle;
+}
+
+.accurate-price, .accurate-quantity, .accurate-seller,
+.accurate-delivery-fee, .delete-select{
+	text-align: center;
+}
+
+.delete-button, .storage-button{
+	background-color: white;
+	font-weight: bold;
+	font-size: 1.3rem;
+	color: #616161;
+	border: 1px solid #616161;
+	width: 7.4rem;
+	height: 3.7rem;
+}
+
+.delete-button:hover, .storage-button:hover{
+	color: #202020;
+	border-color: #202020;
+	cursor: pointer;
+}
+
+.storage-button{
+	margin: 1rem 0 0 0;
+}
+
+.basket-book-minus, .basket-book-plus{
+	background-color:rgb(250,250,250);
+	border: 1px solid;
+	border-color: rgb(240,240,240);
+}
+
+
+/*
+-------------------------------------------------------------------------------------
+*/
+.basket-order-container{
+	width: 25rem;
+}
+
+.basket-order-layout{
+	position: absolute;
+	margin: 0 0 0 2.5rem;	
+	background-color:rgb(250, 250, 250);
+	z-index: 999;
+}
+
+.box-title{
+	text-align: center;
+	font-size: 1.8rem;
+	width: 22.5rem;
+	height: 6rem;
+	line-height: 6rem;
+	border-bottom: 1px solid;
+}
+
+.box-content{
+	padding: 1.6rem 1.6rem 6rem 1.6rem;
+}
+
+.box-row{
+	display: flex;
+}
+
+.row--title{
+	color:rgb(100, 100, 100);
+	font-size: 1.3rem;
+	width: 10rem;
+	height: 3rem;
+}
+
+.row--data{
+	font-size: 1.5rem;
+}
+
+.divided{
+	border-bottom: 1px solid;
+	border-color: rgb(224, 224, 224);
+	padding: 1rem 0 0 0; 
+}
+
+.as{
+	padding: 2rem 0 0 0;
+}
+
+.row--amount{
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: rgb(35, 122, 246);
+}
+
+.order-box-button{
+	width: 22.5rem;
+	height: 5rem;
+	font-size: 1.6rem;
+	font-weight: bold;
+	color: white;
+	background-color: rgb(35, 122, 246);
+	border: 1px solid;
+	border-color: rgb(35, 122, 246);
+}
+
+.order-box-button:hover{
+	cursor: pointer;
+	background-color: #1854A9;
+	border-color: #1854A9;
+}

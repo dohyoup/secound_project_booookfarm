@@ -1,0 +1,100 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+@import "reset.css";
+@import "variables.css";
+@import "standard.css";
+
+/* Components */
+@import "components/icons.css";
+@import "components/modal.css";
+
+/* Screens */
+@import "screens/login.css";
+@import "screens/join.css";
+@import "screens/find.css";
+@import "screens/add.css";
+@import "screens/startPage.css";
+@import "screens/quickmenu.css";
+@import "screens/detail-page/detail.css";
+@import "screens/detail-page/basket.css";
+@import "screens/detail-page/payment.css";
+@import "screens/detail-page/locker.css";
+@import "screens/detail-page/complete.css";
+
+/* font */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html{
+    font-size: 62.5%;
+    line-height: 1.285;
+}
+
+body {
+  font-size: 1.6rem;
+  font-weight: 500;
+  font-family: 'Noto Sans KR';
+}
+
+header {
+    position: relative;
+    top: -4.8rem;
+}
+
+/* css 수정 */
+.logo {
+    color: white;
+    position: relative;
+    font-size: 3.2rem;
+    top: 10rem;
+    z-index: 10;
+    /*width: 139.6rem;*/
+    display: inline-block;
+    left: 7.5em;
+    margin: 0 auto 0 auto;
+}
+.logo:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.content-hidden {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    word-wrap: break-word;
+    line-height: 1.5;
+    display: -webkit-inline-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.hover__filter {
+    filter: brightness(80%);
+}
+
+.scroll-y {
+    overflow-y: scroll;
+}
+
+.scroll-y::-webkit-scrollbar {
+    width: 0.6rem !important;  /* 스크롤바의 너비 */
+}
+
+.scroll-y::-webkit-scrollbar-thumb {
+    height: 25%; /* 스크롤바의 길이 */
+    background: #cccccc; /* 스크롤바의 색상 */
+    border-radius: 1rem;
+}
+
+.scroll-y::-webkit-scrollbar-track {
+    background: transparent;  /*스크롤바 뒷 배경 색상*/
+}

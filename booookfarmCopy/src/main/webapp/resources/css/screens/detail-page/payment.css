@@ -1,0 +1,270 @@
+@charset "UTF-8";
+
+.page_hidden{
+	display:none;
+}
+
+.order-title{
+	font-size: 1.8rem;
+	font-weight: bold;
+	padding: 1.5rem 0 1.5rem 0;
+}
+
+.stan{
+	width:13.625rem;
+}
+
+.stan-2{
+	width: 17.031rem;
+	padding: 0 0 0 3rem;
+}
+
+.stan-3{
+	width: 16.058rem;
+}
+
+.stan-4{
+	width: 9.736rem;
+}
+
+.shop-total{
+	background-color: rgb(250, 250, 250);
+	width: 91rem;
+	height: 4.85rem;
+}
+
+.non-pointer{
+	pointer-events: none;
+}
+
+.calculation{
+	width: 91rem;
+	height: 4.85rem;
+	line-height: 4.85rem;
+	text-align: right;
+	padding: 0 1rem 0 0;
+	font-size: 1.4rem;
+	color: rgb(100, 100, 100);
+}
+
+.order-info-container{
+	width: 91rem;
+	padding: 2rem 0 0 0;
+}
+
+.order-info-layout{
+	width: 91rem;
+	display: flex;	
+	border-top: 1px solid rgb(230, 230, 230);
+}
+
+.title-area{
+	padding: 4rem 0 0 0;
+	width: 10rem;
+	font-size: 1.8rem;
+}
+
+.payment-input-container{
+	display: flex;
+	padding: 0 0 2rem 0;
+}
+
+.input-area{
+	display: flex;
+}
+
+.detail-area{
+	padding: 4rem 0 0 20rem;
+	width: 61rem;
+}
+
+.order-info-title{
+	width:13rem;
+	height: 5rem;
+	line-height: 5rem;
+	font-size: 1.4rem;
+	color: #202020;
+}
+
+.order-info-title-half{
+	width:17rem;
+	height: 5rem;
+	line-height: 5rem;
+}
+
+.input-order-info{
+	background-color: rgb(250, 250, 250);
+	border: 1px solid;
+	border-color: rgb(230, 230, 230);
+	width: 47rem;
+	height: 5rem;
+}
+
+.input-order-info-address{
+	width: 34rem;
+	height: 5rem;
+	margin: 0 1rem 0 0;
+	background-color: rgb(250, 250, 250);
+	border: 1px solid;
+	border-color: rgb(230, 230, 230);
+}
+
+.on{
+	border: 1px solid rgb(35, 122, 246);
+	background-color: white;
+	color: rgb(35, 122, 246);
+	font-size: 1.6rem;
+	font-weight: bold;
+	margin: 0 1px 0 0;
+	width:24.6rem;
+	height: 5.4rem;
+}
+
+.off{
+	width:24.6rem;
+	height: 5.4rem;
+	background-color: rgb(250, 250, 250);
+    border: 1px solid rgb(230, 230, 230);
+	font-size: 1.6rem;
+	font-weight: bold;
+	color: #616161;
+}
+
+.address-toggle1:hover, .address-toggle2:hover {
+	background-color: rgb(230, 230, 230);
+}
+
+.address-btn{
+	width: 12rem;
+	height: 5.4rem;
+	background-color: #616161;
+    border: 1px solid #616161;
+	font-size: 1.4rem;
+	font-weight: bold;
+	color:white;
+}
+
+.address-btn:hover{
+	cursor: pointer;
+	background-color: #202020;
+	border-color: #202020;
+}
+
+.input-order-info-emoney{
+	width: 22rem;
+	height: 5rem;
+	margin: 0 1rem 0 0;
+	border: 1px solid;
+	border-color: rgb(230, 230, 230);
+	text-align: right;
+	padding: 0 1rem 0 1rem;
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+
+.use-mileage{
+	width: 7.5rem;
+	height: 4.5rem;
+	font-size: 1.4rem;
+	font-weight: bold;
+	color: white;
+	border: 1px solid #237AF6;
+	background-color: #237AF6;
+	border-radius: 0.6rem;
+}
+
+.p_on{
+	border: 1px solid rgb(35, 122, 246);
+	width:24.4rem;
+	height: 5rem;
+	color: rgb(35, 122, 246);
+	font-size: 1.6rem;
+	font-weight: bold;
+	background-color: white;
+}
+
+.p_off{
+	width:24.4rem;
+	height: 5rem;
+	background-color: rgb(250, 250, 250);
+    border: 1px solid rgb(230, 230, 230);
+	font-size: 1.6rem;
+	font-weight: bold;
+	color: #616161;
+}
+
+.payment-toggle1:hover, .payment-toggle2:hover{
+	background-color: rgb(230, 230, 230);
+}
+
+.depositor, .deposit-bank{
+	width: 14rem;
+	height: 5rem;
+	line-height: 5rem;
+	font-size: 1.4rem;
+}
+
+.depositor-name{
+	width: 33rem;
+	height: 5rem;
+	border: 1px solid;
+	border-color: rgb(230, 230, 230);
+	padding: 0 1rem 0 1rem;
+	font-weight: bold;
+}
+
+.deposit-bank-name{
+	width: 35rem;
+	height: 5.2rem;
+	border: 1px solid;
+	border-color: rgb(230, 230, 230);
+	padding: 0 1rem 0 1rem;
+}
+
+.possess-emoney, .possess-bmoney{
+	font-size: 1.4rem;
+	color: #616161;
+}
+
+.hidden-info:hover , .input-order-info-emoney:hover, .depositor-name:hover{
+	outline: 1px solid rgb(35, 122, 246);
+}
+
+.hidden-info:focus, .input-order-info-emoney:focus, .depositor-name:focus{
+	outline: 1px solid rgb(35, 122, 246);
+}
+
+.use-mileage:hover{
+	cursor: pointer;
+	background-color: #1854A9;
+	border-color: #1854A9;
+}
+
+.hidden-info{
+	background-color: white;
+}
+
+.static-info{
+	padding: 0 1rem 0 1rem;
+	font-weight: bold;
+	color: #616161;
+}
+
+.origin-info, .hidden-info{
+	padding: 0 1rem 0 1rem;
+	font-weight: bold;
+	color: #616161;
+}
+
+.pay_off{
+	display: none;
+}
+
+.deposit-bank-name{
+	font-size: 1.6rem;
+	font-weight: bold;
+}
+
+.deposit-bank-name{
+	outline: none;
+}

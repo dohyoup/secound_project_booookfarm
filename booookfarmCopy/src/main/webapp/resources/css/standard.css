@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+
+.st-hd{
+	width: 100%;
+	height: 16rem;
+	border-bottom: 1px solid;
+	border-color: rgb(238,238,238);
+}
+
+.st-ma {
+	width: 100%;
+	border-top: 1px solid;
+	border-color: rgb(238,238,238);
+}
+
+.st-ft{
+	background-color: rgb(52, 60, 71);
+	padding: 0 0 3.5rem 0;
+}
+
+.navigation-container{
+	background-color: rgb(35, 122, 246);
+	height: 3.5rem;
+	text-align: right;
+	list-style-type: none;
+	margin: 0;
+    padding: 0;
+}
+
+.navigation-element , .element{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.navigation-element{
+	width: 114rem;
+	margin: 0 auto 0 auto;
+}
+
+.element{
+	margin: 1rem 2.5rem 0 0.5rem;
+	font-size: 1.2rem;
+	color: white;
+}
+
+.head-container{
+    width: 114rem;
+    margin: 3.8rem auto 0 auto;
+    position: relative;
+    top: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.main-container {
+	display: flex;
+	justify-content: space-between;
+	margin: 0.5rem auto 0rem auto;
+	width: 114rem;
+	padding: 10rem 0 0 0;
+}
+
+.mainlogo-img{
+	display: inline-block;
+}
+
+.full-sear{
+	display: inline-block;
+}
+
+.mainlogo{
+	margin: 0 8.7rem 0 0; 
+	height:5.8rem;
+}
+
+.page-name{
+	font-size: 2.5rem;
+}
+
+.sear{
+	width: 61rem;
+	height: 5.4rem;
+}
+
+.row-4{
+	width: 20%;
+}
+
+.row-8{
+	width: 75%;
+}
+
+.footer-container{
+	display: flex;
+	width: 114rem;
+	margin: 0 auto 0 auto;
+}
+
+.footer-menu{
+	font-weight: bold;
+	position: relative;
+	top: 4.8rem;
+	color: white;
+	font-size: 1.5rem;
+}
+
+.ft-link{
+	display: inline-block;
+	color: white;
+}
+
+.footer-info{
+	line-height: 1.8rem;
+	font-size: 1.2rem;
+	color: rgb(125, 127, 130);
+	position: relative;
+	top: 6.0rem;
+	font-weight: bold;
+	width: 88rem;
+}
+
+.cs-frame{
+	position: relative;
+	width: 14rem;
+	left: 92rem;
+}
+
+.cus{
+	color:white;
+	margin: 0 0 1rem 0;
+	font-size: 1.5rem;
+}
+
+.cus-num{
+	color: rgb(138, 250, 128);
+	font-size: 2.5rem;
+}
+
+.web{
+	color: white;
+	border: 2px solid white;
+	width: 8.7rem;
+	height: 3rem;
+	line-height: 3rem;
+	text-align: center;
+	position: relative;
+	left:105rem;
+	bottom:2.8rem;
+	font-size:1.3rem;
+}
+
+@media screen and (max-width: 1140px) {
+	.st-ft, .navigation-container {
+		width: 114rem;
+	}
+}

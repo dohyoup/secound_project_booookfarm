@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="memberMapper">
+    <select id="selectMemData" resultType="memberDTO">
+        SELECT MEMBER_ID AS memId
+             , MEMBER_PASSWORD AS memPw
+             , MEMBER_NAME AS memName
+             , PHONE AS phone
+             , EMAIL AS email
+             , POSTAL_CODE AS postCode
+             , ADDRESS AS addr
+             , DETAIL_ADDRESS AS detailAddr
+             , MILEAGE AS mileage
+             , SOCIAL_TYPE AS socialType
+             , MEMBER_POSITION AS memPos
+             , JOIN_DATE AS joinDate
+          FROM MEMBERS
+         WHERE MEMBER_ID = #{memId}
+    </select>
+    <select id="selectLoginData" resultType="memberDTO">
+        SELECT MEMBER_ID AS memId
+             , MEMBER_PASSWORD AS memPw
+             , MEMBER_NAME AS memName
+             , PHONE AS phone
+             , EMAIL AS email
+             , POSTAL_CODE AS postCode
+             , ADDRESS AS addr
+             , DETAIL_ADDRESS AS detailAddr
+             , MILEAGE AS mileage
+             , SOCIAL_TYPE AS socialType
+             , MEMBER_POSITION AS memPos
+             , JOIN_DATE AS joinDate
+        FROM MEMBERS
+        WHERE MEMBER_ID = #{memId}
+          AND MEMBER_PASSWORD = #{memPw}
+    </select>
+    <select id="selectMemId" resultType="string">
+        SELECT MEMBER_ID
+          FROM MEMBERS
+         WHERE MEMBER_ID = #{id}
+    </select>
+    <select id="chkPhoneDup" resultType="_int">
+        SELECT COUNT(PHONE)
+          FROM MEMBERS
+         WHERE PHONE = #{pNum}
+           AND SOCIAL_TYPE = #{joinType}
+    </select>
+    <insert id="insertMemData">
+        INSERT INTO MEMBERS(
+                    MEMBER_ID
+                  , MEMBER_PASSWORD
+                  , MEMBER_NAME
+                  , PHONE
+                  , EMAIL
+                  , POSTAL_CODE
+                  , ADDRESS
+                  , DETAIL_ADDRESS
+                  , MILEAGE
+                  , SOCIAL_TYPE
+                  , MEMBER_POSITION
+                  , JOIN_DATE)
+             VALUES ( #{memId}
+                    , #{memPw}
+                    , #{memName}
+                    , #{phone}
+                    , #{email}
+                    , #{postCode}
+                    , #{addr}
+                    , #{detailAddr}
+                    , #{mileage}
+                    , #{socialType}
+                    , #{memPos}
+                    , SYSDATE)
+    </insert>
+</mapper>

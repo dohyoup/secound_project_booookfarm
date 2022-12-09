@@ -1,0 +1,113 @@
+.login-container {
+    width: 44rem;
+    margin: 0 auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login-title {
+    width: 100%;
+    padding-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 0.2rem solid black;
+    font-size: 2.7rem;
+    margin-bottom: 3rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-input-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #bebebe;
+    width: 40rem;
+    height: 5rem;
+    padding : 0 1rem;
+    margin-top: 2rem;
+    color: #606060;
+}
+
+.login-input-box:first-child {
+    margin-top: 0;
+}
+
+.login-input-box>i:hover {
+    cursor: pointer;
+}
+
+.login-err-box {
+    width: 100%;
+    display: flex;
+    margin: 1rem 0 0 1rem;
+}
+.login-err-msg {
+    color: var(--red);
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.login-form__input {
+    width: 90%;
+    font-weight: 700;
+    border: none;
+}
+
+.login-form__input:focus {
+    outline: none;
+}
+
+.login-form__input::placeholder {
+    color: #bebebe;
+}
+
+.login-form__checkbox {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+.login-form__checkbox:hover {
+    cursor: pointer;
+}
+
+.login-check-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 2rem 0 4.5rem 0;
+    color: #6a6a6a;
+    font-size: 1.4rem;
+}
+
+.login-form__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.login-form__btn>img {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1.5rem;
+}
+
+.login-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.4rem;
+    color: #727272;
+    margin: 2.5rem 0 10rem 0;
+}
+
+.login-row>span:hover {
+    cursor: pointer;
+}

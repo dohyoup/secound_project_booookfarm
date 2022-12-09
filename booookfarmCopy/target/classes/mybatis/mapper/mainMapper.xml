@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bookTestMapper">
+ 	<select id="selectData"  resultType="bookDTO">
+			SELECT BOOK_CODE AS bookCode
+			 , BOOK_TITLE AS bookTitle
+			 , BOOK_AUTHOR AS bookAuthor
+			 , BOOK_INFO AS bookInfo
+			 , BOOK_PRICE AS bookPrice
+			 , BOOK_DISCOUNT AS bookDiscount
+			 , ISBN AS isbn
+			 , BOOK_CATEGORY AS bookCategory
+			 , STOCK AS stock 
+			 , PUBLISHER AS publisher
+			 , BOOK_CONDITION AS bookCondition
+			 , BOOK_CONDITION_INFO AS bookConditionInfo
+			 , BOOK_IMG_PATH AS bookImgPath
+			 , HIT_COUNT AS hitCount
+			 , TO_CHAR(CREATE_DATE,'YYYY.MM.DD') AS createDate
+		FROM BOOK
+		WHERE BOOK_CODE = #{bookcode}
+	</select> 
+	<select id="selectAll"  resultType="bookDTO">
+		SELECT RN.*
+		FROM
+		(SELECT ROWNUM AS RN ,TEMP.*
+		FROM
+		(SELECT BOOK_CODE AS bookCode
+			 , BOOK_TITLE AS bookTitle
+			 , BOOK_AUTHOR AS bookAuthor
+			 , BOOK_INFO AS bookInfo
+			 , BOOK_PRICE AS bookPrice
+			 , BOOK_DISCOUNT AS bookDiscount
+			 , ISBN AS isbn
+			 , BOOK_CATEGORY AS bookCategory
+			 , PUBLISHER AS publisher
+			 , BOOK_CONDITION AS bookCondition
+			 , BOOK_CONDITION_INFO AS bookConditionInfo
+			 , BOOK_IMG_PATH AS bookImgPath
+			 , HIT_COUNT AS hitCount
+			 , TO_CHAR(CREATE_DATE,'YYYY.MM.DD') AS createDate
+			 FROM BOOK
+			 WHERE 1=1
+			 <include refid="search"></include>
+			 <include refid="category"></include>
+			 <include refid="sort"></include>
+			 )TEMP
+		 	 )RN
+			 WHERE RN BETWEEN #{num_start} AND #{num_end}
+	</select>
+	<select id="selectCnt"  resultType="_int">
+   	SELECT COUNT(*)
+     FROM BOOK
+      WHERE 1=1 
+	 <include refid="search_category"></include>
+	 <include refid="category"></include>
+	
+	</select>
+	
+
+	
+ 	<select id="selectBookList"  resultType="String">
+		SELECT
+			BOOK_CODE
+		FROM BASKET
+			WHERE 1 = 1
+				AND MEMBER_ID = #{memberId}
+				AND BOOK_CODE = #{bookCode}
+	</select>
+	<insert id="insertBook">
+		INSERT
+			INTO
+			USER01.BASKET
+		(BASKET_CODE,
+			MEMBER_ID,
+			BOOK_CODE,
+			QUANTITY,
+			DELIVERY_FEE)
+		VALUES(
+		SQU_BASKET.NEXTVAL,
+		#{memberId},
+		#{bookCode},
+		1,
+		1)
+	</insert> 
+	<insert id="addBookInfo" parameterType="bookDTO">
+		INSERT INTO BOOK( 
+		       BOOK_CODE 
+			 , BOOK_TITLE 
+			 , BOOK_AUTHOR 
+			 , BOOK_INFO 
+			 , BOOK_PRICE 
+			 , BOOK_DISCOUNT 
+			 , ISBN 
+			 , STOCK
+			 , BOOK_CATEGORY 
+			 , PUBLISHER 
+			 , BOOK_CONDITION 
+			 , BOOK_CONDITION_INFO 
+			 , BOOK_IMG_PATH 
+			 , HIT_COUNT
+			 , CREATE_DATE)
+		 VALUES(
+			   #{bookCode}
+			 , #{bookTitle}
+			 , #{bookAuthor}
+			 , #{bookInfo}
+			 , #{bookPrice}
+			 , #{bookDiscount}
+			 , #{isbn}
+			 , #{stock}
+			 , #{bookCategory}
+			 , #{publisher}
+			 , #{bookCondition}
+			 , #{bookConditionInfo}
+			 , #{bookImgPath}
+			 , #{hitCount}
+			 , SYSDATE
+		)
+	</insert>
+	<update id="increaseHitCount">
+	 	UPDATE BOOK SET HIT_COUNT = HIT_COUNT + 1
+		WHERE BOOK_CODE = #{bookCode}
+	</update>
+	
+	<sql id="sort">
+		<if test="sort_Type =='sortData'">
+			ORDER BY CREATE_DATE DESC
+		</if>
+		<if test="sort_Type == null || sort_Type ==''">
+			ORDER BY CREATE_DATE DESC
+		</if>
+		<if test="sort_Type =='sortAccuracy'">
+			ORDER BY REGEXP_COUNT(BOOK_TITLE,UPPER(REPLACE(#{search_Data},' '))) DESC
+		</if>
+		<if test="sort_Type=='sortLprice'">
+			ORDER BY BOOK_PRICE ASC
+		</if>
+		<if test="sort_Type=='sortHprice'">
+			ORDER BY BOOK_PRICE DESC
+		</if>
+	</sql>
+	<sql id="search">
+	<if test="search_Type == 'booktitle'">
+		<if test="search_Data != null">
+			AND UPPER(BOOK_TITLE) like UPPER(REPLACE('%'||#{search_Data}||'%',' '))
+		</if>
+	</if>
+	<if test="search_Type == 'bookpublisher'">
+		<if test="search_Data != ''">
+			AND UPPER(PUBLISHER) like UPPER(REPLACE('%'||#{search_Data}||'%',' '))
+		</if>
+	</if>
+	<if test="search_Type == 'isbn'">
+		<if test="search_Data != ''">
+			AND UPPER(ISBN) like UPPER(REPLACE('%'||#{search_Data}||'%',' '))
+		</if>
+	</if>
+	</sql>
+	
+	<sql id="search_category">
+		<if test="search_Data != ''">
+			AND UPPER(BOOK_TITLE) like UPPER(REPLACE('%'||#{search_Data}||'%',' '))
+		</if>
+	</sql>
+	
+	<sql id="category">
+		<if test="category_Type != ''">
+			AND BOOK_CATEGORY = #{category_Type}
+		</if>
+	</sql>
+</mapper>

@@ -1,0 +1,596 @@
+@charset "UTF-8";
+
+
+/*
+	메인 로고 input 박스
+*/
+.input-container{
+	border: 2px solid #237AF6;
+	box-sizing: border-box;
+	height: 6rem;
+	display: flex;
+	align-items: center;
+	width: 62rem;
+}
+.input-layout{
+	padding: 0 1.5rem;
+}
+
+.input-box{
+	border-style:none;
+	outline: none;
+	caret-color: #3f51b5;
+	font-size: 1.6rem;
+	font-weight: normal;
+	height: 4rem;
+	margin-left: 10rem;
+	width: 40rem;
+}
+.serch-box > img{
+	width: 3rem;
+}
+.serch-box{
+	position: relative;
+	left: 2.3rem;
+	cursor: pointer;
+    outline: none;
+    background-color: white;
+    border-style: none;
+}
+.serach-container{
+	display: flex;
+	align-items: center;
+}
+.serach-box{
+	align-items: center;
+    display: flex;
+    position: absolute;
+}
+.serach-select{
+	border-style: none;
+	outline: none;
+	width: 8.5rem;
+	margin-left: 1.5rem;
+	font-size: 1.4rem;
+	font-weight: bold;
+	color: var(--deepgrey);
+}
+.isbn_search{
+	display: flex;
+	align-items: center;
+    background-color: #FAFAFA;
+    height: 80px;
+    line-height: 80px;
+    padding: 0 20px;
+}
+
+.input_area{
+	width: 31.3rem;
+	height: 4.8rem;
+	margin: 0 2rem;
+    background-color: white;
+}
+
+.isbn_btn{
+	font-size: 14px;
+    font-weight: 500;
+    min-height: 24px;
+    line-height: 24px;
+    color: #FFFFFF;
+    width: 120px;
+    height: 50px;
+}
+.isbn_btn.grey{
+	background-color: #616161;
+    border: 1px solid #616161;
+}
+.isbn_btn.grey:hover{
+	background-color: black;
+}
+
+/*
+ 전체카테고리 박스,폰트 css
+*/
+.sidemenu-container{
+	width: 22.7rem;
+	height: 12.5rem;
+	background-color: rgb(100,157,237);
+}
+.sidemenu-item-container > div{
+	cursor: pointer;
+	}
+	
+.sidemenu-title{
+	font-size: 2.4rem;
+	font-weight: normal;
+	color: var(--white);
+	padding-top: 5rem;
+	padding-left: 2rem;
+}
+
+/*
+  카테고리 박스 폰트 css
+*/
+.menu-item{
+	font-size: 1.4rem;
+	font-weight: normal;
+	padding: 0 1.6rem;
+	height:3.9rem;
+	line-height: 4rem;
+	border-bottom: 1px solid var(--grey);
+	color: var(--deepgrey);
+}
+.selected > span{
+	    background: linear-gradient(to top, #FFFF92 40%, #FAFAFA 60%);
+	    color: #202020;
+}
+
+
+
+/*
+ 전체 체크 박스
+*/
+.chkbox-container{
+	border-top: 1px solid var(--grey);
+}
+.chbox-container-layout{
+	display: flex;
+	align-items: center;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.book-chkbox{
+	width: 2rem;
+	height: 2rem;
+	margin-right: 0.8rem;
+}
+
+/*
+	book 카드 css
+*/
+
+
+.bookcard-container{
+	margin-top: 2rem;
+	padding-bottom: 1rem;
+    border-bottom: 1px solid var(--grey);
+	
+}
+
+.bookcard-flex{
+	display: flex;
+}
+.book-card-img{
+	width: 10rem;
+	height: 14.4rem;
+	background-size: 100% 100% !important;
+	position: relative;
+	top:-1.3rem;
+	left: 3rem;
+}
+
+.bookcard-chkbox-card{
+	width: 1.6rem;
+	height: 1.6rem;
+}
+
+.bookcard-chkbox-input{
+	display: none;
+}
+
+.bookcard-img{
+	width: 10rem;
+	height: 14.4rem;
+	
+}
+.bookCondition::before{
+	content: attr(book_condition)"급";
+}
+.bookCondition::before{
+	background-color: #649DED;
+    font-size: 11px;
+    font-weight: normal;
+    min-height: 17px;
+    line-height: 17px;
+    color: #FFFFFF;
+    height: 18px;
+    font-size: 11px;
+    text-align: center;
+    width: 40px;
+    position: absolute;
+	}
+
+.bookcard-view-img{
+	width: 100%;
+	height: 100%;
+	border: 1px  solid black;
+}
+
+
+.boookcard-view-box{
+	width: 7.2rem;
+    height: 10rem;
+    padding: 1.1rem 1.4rem;
+    position: relative;
+}
+.bookcard-view-a{
+	width: 100%;
+    display: block;
+    height: 10rem;
+}
+.bookcard-view-btn{
+    position: absolute;
+    top: -1px;
+    left: -18px;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background: rgb(34, 34, 34);
+}
+
+.bookcard-view-info{
+	display:none;
+	height: 10rem;
+    position: absolute;
+    background-color: white;
+    top: 1.1rem;
+    right: 8.5rem;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    color: black;
+    width: 17rem;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.boook-view-title{
+	margin-bottom: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    font-weight: normal;
+    text-align: left;
+}
+
+.boook-view-price{
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: left;
+    color: var(--red);
+}
+.bookcard-cancel{
+    position: absolute;
+    left: 6.3rem;
+    top: 4.6rem;
+}
+
+.book-title{
+	padding-left: 16rem;
+	padding-right: 16rem;
+	height: 15rem;
+	min-height: 15rem;
+}
+
+.book-view{
+	display: flex;
+	justify-content: space-between;
+}
+
+.book-view-cnt{
+	font-size: 1.2rem;
+	color: rgb(35,122,246);
+}
+
+.book-info-author{
+	margin-top: 1.5rem;
+	color: var(--deepgrey);
+	font-size: 1.4rem;
+}
+
+.book-buy-layout{
+	padding-bottom: 1.5rem;
+}
+
+.book-basket-buy{
+	width: 14.2rem;
+	padding: 0 3rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+	
+.book-basket-btn{
+	width: 14rem;
+	height: 4rem;	
+	background-color: var(--white);
+	border: 1.5px solid #9D9D9D;
+	font-weight: bolder;
+	color: #616161;
+}
+
+.top-btn-container{
+	display: flex;
+	border-top: 1px solid var(--grey);
+    padding: 2rem 0 2rem 0;
+	
+}
+
+.add-book{
+    position: relative;
+    left: 57rem;
+}
+.add-book >button{
+	width: 11rem;
+	height: 4rem;
+	background-color: rgb(35,122,246);
+	border-style: none;
+	color: var(--white);
+	font-weight: bolder;
+}
+.add-book>button:hover{
+	cursor: pointer;
+	background-color: #1854A9;
+	border-color: #1854A9;
+}
+
+.addAll-basket{
+    position: relative;
+    left: 60rem;
+}
+.addAll-basket >button{
+	width: 11rem;
+	height: 4rem;
+	background-color: var(--white);
+	border: 1.5px solid #9D9D9D;
+	font-weight: bolder;
+	color: #616161;
+}
+.addAll-basket >button:hover{
+	color:black;
+	cursor: pointer;
+	border-color: #202020;	
+}
+
+.select-basket-btn{
+	width: 11rem;
+	height: 4rem;	
+	background-color: var(--white);
+	border: 1.5px solid #9D9D9D;
+	font-weight: bolder;
+	color: #616161;
+	position: relative;
+	left: 68.5rem;
+}
+.book-buy-btn{
+	width: 14rem;
+	height: 4rem;
+	background-color: rgb(35,122,246);
+	border-style: none;
+	color: var(--white);
+	font-weight: bolder;
+}
+
+.top>button:hover{
+	cursor: pointer;
+	background-color: #1854A9;
+	border-color: #1854A9;
+}
+.bottom>button:hover{
+	color:black;
+	cursor: pointer;
+	border-color: #202020;
+}
+.select-basket>button:hover{
+	color:black;
+	cursor: pointer;
+	border-color: #202020;
+}
+
+.card-info-box{
+	margin: 1.5rem -0.5rem 0 2rem;
+	width: 53rem;
+}	
+
+.card-info-price{
+	margin-top: 2rem;
+}
+
+.card-price{
+	font-size: 1.2rem;
+	text-decoration: line-through;
+	font-weight: normal;
+}
+.card-sale-price{
+	font-size: 1.6rem;
+	font-weight: normal;
+	margin-top: 1rem;
+	padding-right: 1rem;
+	float: left;
+}
+.up-sale{
+	font-size: 1.6rem;
+	font-weight: bold;
+	margin-top: 1rem;
+	color: rgb(35,122,246);
+	display: inline-block;
+}
+
+.down-sale{
+	font-size: 1.6rem;
+	font-weight: bold;
+	margin-top: 1rem;
+	color: #E14F4F;
+	display: inline-block;
+}
+.up-arrow{
+	 transform: rotate(270deg); 
+	 display: inline-block;"
+}
+.down-arrow{
+	 transform: rotate(90deg); 
+	 display: inline-block;"
+}
+
+.select-list-box{
+	width: 14rem;
+	height: 3.2rem;
+	border: 1px solid;
+	margin-left: 1.5rem;
+}
+.head-logo-box{
+    position: absolute;
+    display: block;
+    width: 16rem;
+    height: 10rem;
+    top: -3rem;
+}
+
+.mainlogo-img{
+	display: inline-block;
+}
+.mainlogo{
+	margin: 0 8.7rem 0 0;
+}
+.mainlogo>img{
+	width: 17rem;
+	cursor: pointer;
+}
+ul {
+    border-right: 0;
+    display: flex;
+    justify-content: center;
+    margin: 3rem auto 6rem auto;
+}
+
+ul li {
+    text-align: center;
+    float: left;
+}
+
+ul li a.paging-_btn {
+    display: block;
+    font-size: 14px;
+    padding: 9px 12px;
+    border-right: solid 1px #ccc;
+    box-sizing: border-box;
+}
+
+ul li.paging_on>.page-link {
+ 	margin: 0 0.9rem;
+ 	padding: 0;
+ 	width: 3rem;
+ 	height: 3rem;
+ 	font-size: 1.6rem;
+ 	font-weight: normal;
+ 	color: #616161;
+}
+ul li.paging_on>.page-link:hover {
+	border: 1px solid;
+	color: #237AF6;
+}
+
+ul li.paging_on a {
+    color: #fff;
+}
+.page-item{
+	width: 3.3rem;
+	height: 3rem;
+}
+.page-link{
+	width: 100%;
+	height: 100%;
+	border-style: none;
+	background-color: white;
+}
+.selected_on{
+	border: 1px solid #237AF6;
+	color:  #237AF6;	
+background-color: rgba(35, 122, 246, 0.1);
+}
+.page-link:hover{
+	border: 1px solid;
+	color: #237AF6;
+}
+.page-item > .page-link > img{
+	width: 2rem;
+	display: flex;
+} 
+.disnone{
+	display: none;
+}
+
+.h-sticky{
+	position: sticky;
+	top: 0;
+	height: 20rem;
+    margin-bottom: 4.8rem;
+    background-color: white;
+    z-index: 25;
+}
+.hc-sticky{
+	margin: -0.6rem auto;
+}
+.hn-sticky{
+	height: 3.5rem;
+}
+.form-box{
+	display: flex;
+}
+
+#teet {
+  position: fixed;
+  top: 1.2rem;
+  right: 0rem;
+  text-align: center;
+  z-index: 99999;
+}
+
+
+
+#teet .toastWrap {
+  display: none;
+  background-color: rgba(225, 79, 79, 0.9);
+  box-shadow: 0 2px 3px #999;
+  border-radius: 0.6rem;
+  text-align: center;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  width: 21.6rem;
+}
+
+.toast {
+	min-width: 21.6rem;
+    min-height: 2.4rem;
+    text-align: center;
+    line-height: 2.4rem;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+
+#teen b {
+  display: block;
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  width: 12px;
+  height: 12px;
+  font: normal 12px/1 Arial, sans-serif;
+  text-align: right;
+  cursor: pointer;
+  text-shadow: #FFF 0 1px 0;
+}
+
+
+
