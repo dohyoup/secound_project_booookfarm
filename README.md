@@ -117,6 +117,6 @@
   - 블로그 링크 추후 공개예정 
 ## 📜 Portfolio
 
-### 📒 [노션 포트폴리오](https://www.notion.so/87662a3c2aef4ac7a1a38a7af370cd5f?p=53c2b32d45204bb890521e7106585cc1&pm=c)
+### 📒 [노션 포트폴리오](https://www.notion.so/87662a3c2aef4ac7a1a38a7af370cd5f?p=333e360ddd774a1692c6e6338f1ef940&pm=c)
 
 
