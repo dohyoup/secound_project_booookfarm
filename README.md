@@ -34,48 +34,57 @@
     <summary><h4>1. 도서상세 페이지</h4></summary>
  
 - 메인 페이지에서 관리자가 등록한 도서의 상세정보를 보여주는 페이지 입니다.<br>
-- 주요 기능은 도서 정보를 보여주는 것 이외에 최근 등록된 도서를 6개 까지 보여주는 기능과 장바구니 추가 기능이 있습니다.<br>
+- 페이지 기능으로는 도서정보를 보여주는 것 이외에 최신 등록도서를 6개 까지 보여주는 기능과 장바구니 추가 기능이 있습니다.<br>
   <br>
+  <h4>VIEW</h4>
   <img src="https://user-images.githubusercontent.com/100770645/214355928-c774f0fa-bb17-4ba9-b2b4-b3de3902e546.PNG" style="width:600px; height:700px;">
-  <h5>최근 등록 도서</h5>  
  
-  - Controller에서는 사용자 요청을 받고, Service, Mapper를 통해 사용자가 요청한 정보를 불러 옵니다.<br>
-  - @RequestParam 어노테이션을 이용하여 URL의 요청 매개변수에 들어있는 기본타입 인자를 메서드로 받습니다.<br>
-  - 모임 리스트를 불러오는 기능이기에 페이징처리도 함께 해줍니다.<br>
-     <img src="https://user-images.githubusercontent.com/100770645/214370893-b9e2cd88-4c19-4358-918b-9829e977c130.PNG">
+  <h4>최신 등록도서</h4>  
+ 
+  - DB의 도서 테이블에서 최근 등록된 1~6 번 째의 도서정보를 불러와 보여주는 것이 목표입니다.<br>
+  - ROWNUM을 부여하여 RNUM이 1~6에 속하는 도서 정보를 불러옵니다.<br>
+    <img src="https://user-images.githubusercontent.com/100770645/214370893-b9e2cd88-4c19-4358-918b-9829e977c130.PNG">
   
-  <h5>Service</h5>
+  - 불러온 정보를 JSONArray객체에 담아 JSP로 보내 줍니다.<br>
+    <img src="https://user-images.githubusercontent.com/100770645/214516001-b7d39cf7-32e3-4a69-830d-3cf20c120d86.PNG">
  
-  - 사용자가 요청한 검색정보와 페이지정보를 Map에 담아 Mapper로 전달합니다.<br>
-     <img src="https://user-images.githubusercontent.com/100770645/212885427-874cf1a6-02b6-4a94-9269-15791730917a.PNG">
+  - 받은 최신 도서정보를 사용자 화면에 리스트 형태로 보여줍니다.<br>
+  - JSTL을 사용하고 싶지 않아서 스크립트 단에서 jQuery를 활용하여 구현하였습니다.<br>
+    <img src="https://user-images.githubusercontent.com/100770645/214516008-5ec85ae2-dd73-428d-8ad2-08b55a5007ef.PNG">
+  
+  <h4>장바구니 추가</h4>
  
-  <h5>Mapper</h5>
+  - 사용자가 요청한 상품과 수량을 장바구니에 추가되게하는 것이 목표입니다.<br>
+  - 기능동작은 사용자가 '장바구니 추가' 버튼을 클릭하면 사용자의 로그인상태와 계정 장바구니의 동일상품 존재유무를 확인 후<br> 
+  - DB 장바구니 테이블에 추가합니다.<br>
+    <img src="https://user-images.githubusercontent.com/100770645/214570034-136dd4fa-930c-4869-9353-240d1e8a0046.PNG">
+  - 부가적인 기능으로는 사용자가 설정한 수량에 따라 가격을 표시해주는 기능이 있습니다.<br> 
  
-  - 조건에 따른 검색기능 구현을 위해 기존 검색 쿼리를 동적 쿼리로 변환 하였습니다.  
-     <img src="https://user-images.githubusercontent.com/100770645/212850520-8382511c-91d5-4ec1-b009-d9877d98bd72.PNG">       
- 
-  - 사용자가 검색조건을 사용하지 않았을 때는 전체 모임 리스트를 불러오고<br> 
-  - 카테고리를 선택하거나, 따로 검색을 하거나 둘다 입력하거나 하면 그 조건에 맞춰 모임 리스트를 불러옵니다.<br>
 </details>
 <details>
     <summary><h4>2. 장바구니</h4></summary> 
 
-- 개인당 가입가능 모임 수를 5개로 제한하기로 설정
-  <h5>Controller</h5>
+- 장바구니는 사용자가 구매를 원하는 상품을 저장해두는 페이지 입니다.<br>
+- 장바구니 기능으로는 크게 상품을 추가, 삭제하는 기능, 그리고 보관함에 추가하는 기능이 있고<br>
+- 선택한 상품을 원하는 수량으로 구매할 수 있게하는 기능도 제공합니다.<br>
+  <h4>VIEW</h4>
+  <img src="https://user-images.githubusercontent.com/100770645/214567441-ea45935e-841d-4289-9f21-fff29402ab86.PNG" style="width:600px; height:600px;">
+  
+  <h5>삭제</h5>
  
-  - 화면단에서 사용자에게 지역, 모임제목, 모임정보, 관심사, 정원수 등의 정보를 받아옵니다.<br>
-  - 로그인된 계정에 가입되어있는 모임의 수가 5개를 넘지 않는다는 조건에 충족할시 DB에 저장 합니다.
-     <img src="https://user-images.githubusercontent.com/100770645/212967066-aefdbb3f-7fa0-4646-8c2e-ca2d8ce6954e.PNG">
+  - 삭제는 선택상품 전체 삭제 와 개별상품 삭제 버튼을 따로 제공해 사용자 편의성을 높였습니다.<br>
+  - 사용자 삭제 요청을 받으면 다음의 함수를 통해 확인알림 후 삭제요청 상품정보를 Controller로 전달하고<br>
+    <img src="https://user-images.githubusercontent.com/100770645/214576351-000e079e-b40d-4b8f-9e68-8934a1409c80.PNG">
+  
+  - Controller에선 받은 요청 데이터를 Mapper로 전달하여 최종적으로 DB삭제를 진행합니다.<br>
+    <img src="https://user-images.githubusercontent.com/100770645/214576338-95549ddd-4ca4-48c2-b114-f50bf316992f.PNG">
  
-  <h5>JS</h5>
- 
-  - 개설 시에 조건에 부합하는 사용자 요청 정보를 formData에 담아 Controller로 넘겨줍니다.<br>
-     <img src="https://user-images.githubusercontent.com/100770645/213141347-85ff61b2-261a-4c8d-99d4-5f00f75b7ecc.PNG">
- 
-  <h5>Mapper</h5>
- 
-  - 조건에 부합하는  정보를 DB에 저장합니다.  
-     <img src="https://user-images.githubusercontent.com/100770645/213175872-e29b8fde-9cf4-40bc-9553-014a44ec929f.PNG">       
+  <h5>수량 및 가격</h5>
+    
+  - 추가된 상품별로 구매할 수량을 선택할 수 있고 구매에 필요한 가격을 계산하여 보여줍니다.<br>
+  - 추가적으로 오른쪽에 주문 금액 박스는 구매를 결정한 상품을 체크하면 그 상품의 배송비를 포함한 총 결제가격을 계산해서<br>
+  - 보여줍니다.<br>
+    <img src="https://user-images.githubusercontent.com/100770645/214642791-182a6b64-0e36-4d51-b3a1-841855511aeb.PNG">       
 </details>
 <details>
     <summary><h4>3. 보관함</h4></summary> 
