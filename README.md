@@ -95,35 +95,61 @@
   - 보관함은 장바구니와 디자인 측면이나 기능적으로 매우 유사한 페이지입니다.<br>
     <br>
   <h4>VIEW</h4>
-  <img src="https://user-images.githubusercontent.com/100770645/214783029-88200b36-4047-4ee2-8a3c-4f7685db11c1.PNG" style="width:700px; height:600px;"><br>
+  <img src="https://user-images.githubusercontent.com/100770645/214783029-88200b36-4047-4ee2-8a3c-4f7685db11c1.PNG" style="width:700px; height:600px;">
+  
   - 기능은 삭제기능과 수량 가격표기가 있는데 장바구니와 구현 방식은 동일하게 진행하였습니다.  
  </details>
  <details>
     <summary><h4>4. 결제 페이지</h4></summary> 
  
-  - 장바구니에서 구매상품과 수량을 선택하고 구매버튼을 누르면 결제페이지에 접근됩니다. <br>
-  - 결제페이지에서 구현한 주요 기능으로는 카카오(Dame)API를 통한 주소설정 기능과 마일리지 적립 및 사용기능,<br>
-  - 마지막으로 아임포트 Open API를 통한 이니시스 결제기능이 있습니다.<br>
-  <br>
-  <h4>VIEW</h4>
-  <상><br>
-  <img src="https://user-images.githubusercontent.com/100770645/214798338-191f134c-550e-40fc-a05e-fd920b0e5482.PNG" style="width:700px; height:600px;">
-  <br>
-  <하><br>
-  <img src="https://user-images.githubusercontent.com/100770645/214798357-019b5302-6c34-4f9d-a10d-b27c79b4f7d6.PNG" style="width:700px; height:600px;">
-  <br>
+ - 장바구니에서 구매상품과 수량을 선택하고 구매버튼을 누르면 결제페이지에 접근됩니다. <br>
+ - 결제페이지에서 구현한 주요 기능으로는 카카오(Dame)API를 통한 주소설정 기능과 마일리지 적립 및 사용기능,<br>
+ - 마지막으로 아임포트 Open API를 통한 이니시스 결제기능이 있습니다.<br>
+ <br>
+ <h4>VIEW</h4>
+ <상><br>
+ <img src="https://user-images.githubusercontent.com/100770645/214798338-191f134c-550e-40fc-a05e-fd920b0e5482.PNG" style="width:700px; height:600px;">
+ <br>
+ <하><br>
+ <img src="https://user-images.githubusercontent.com/100770645/214798357-019b5302-6c34-4f9d-a10d-b27c79b4f7d6.PNG" style="width:700px; height:600px;">
+ <br>
   
   <h5>구매자 정보 및 주소지정</h5>
   
-  - 
+   - 만약 구매자가 다른 배송지로 상품을 받기를 원할 경우를 위해 구현하였고<br>
+   - 새로운 주소란에 추가로 입력하지 않으면 회원가입시에 기입한 기존 주소지로 설정됩니다.<br>
+     <img src="https://user-images.githubusercontent.com/100770645/214828582-ececc8b8-92c4-4999-b28b-7c56e803408a.PNG" style="width:700px; height:600px;">
+   - 주소 API는 카카오뿐만 아니라 각종 개발블로그에도 사용예시가 잘 정리되어 있어 메소드를 호출하는 것 만으로 간단하게 구현할 수 있었습니다.
+  
   <h5>마일리지</h5>
+  
+   - 마일리지는 구매완료시 일정금액을 적립해주는 기능으로<br> 
+   - 적립된 마일리지는 결제가격을 넘지않는 선에서 자유롭게 사용가능합니다.<br>
+     <img src="https://user-images.githubusercontent.com/100770645/214840033-3602d371-5c6c-4e25-b9aa-314d1091af32.PNG" style="width:700px; height:600px;">
+  
+   - 결제는 아임포트에서 가맹점 식별 코드를 받은 뒤 결제관련 Open API를 사용하였고<br>
+   - 결제가 성공적으로 이루어지면 주문정보를 폼 변수에 담아서 Controller로 전달 후 DB구매정보 테이블에 저장하는데<br>
+   - 그중 마일리지는 변수에 담을 때 기존 보유 마일리지에서 사용한 마일리지, 새로 적립할 마일리지를 알맞게 계산한 값을<br> 
+   - Controller로 전달합니다.
+   
   <h5>결제</h5>
+  
+  <h4>VIEW</h4>
+  <br>
+     <img src="https://user-images.githubusercontent.com/100770645/214846653-bd07881e-abac-4a42-ad50-e5b81f344a8c.PNG" style="width:700px; height:600px;"><br>
+  
+   - 결제 기능 자체는 사실 처음 Open API를 적용하여 호출하는 부분만 해결하면 크게 어려울 것은 없는 기능이었습니다.<br>
+   - 결제 기능을 구현하면서 시간이 오래걸린 이유는 사실상 결제가 이루어졌을 때의 후처리 작업을 해주어야 했기 때문이었는데,<br>
+   - 위의 마일리지만해도 사용마일리지, 적립마일리지 따로 구분해서 계산 후 업데이트 시켜줘야했고, 또 구매를 했다면 상품이 <br>
+   - 판매 되었다는 의미이니 재고를 업데이트하는 코드도 신경써서 추가해주어야 했습니다.<br> 
+   - 만약 결제 취소가 진행됐다면 이거의 역순으로 업데이트해주는 코드 또한 추가해주어야했습니다.<br>
+     <img src="https://user-images.githubusercontent.com/100770645/214846028-8cf7ab83-676b-4688-a4ca-046c75a8359e.PNG" style="width:700px; height:600px;">
  </details>
  </details>
  
 ### 😤 회고
 
-  - 블로그 링크 추후 공개예정 
+  - [두 번째 프로젝트 회고 <= TstoryBlog](https://dohyoup.tistory.com/entry/%EB%91%90-%EB%B2%88%EC%A7%B8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0) 
 ## 📜 Portfolio
 
 ### 📒 [노션 포트폴리오](https://www.notion.so/87662a3c2aef4ac7a1a38a7af370cd5f?p=333e360ddd774a1692c6e6338f1ef940&pm=c)
