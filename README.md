@@ -149,7 +149,7 @@
  
 ### 😤 회고
 
-  - [두 번째 프로젝트 회고 <= TstoryBlog](https://dohyoup.tistory.com/entry/%EB%91%90-%EB%B2%88%EC%A7%B8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0) 
+  ### [두 번째 프로젝트 회고 <= TstoryBlog](https://dohyoup.tistory.com/entry/%EB%91%90-%EB%B2%88%EC%A7%B8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0) 
 ## 📜 Portfolio
 
 ### 📒 [노션 포트폴리오](https://www.notion.so/87662a3c2aef4ac7a1a38a7af370cd5f?p=333e360ddd774a1692c6e6338f1ef940&pm=c)
