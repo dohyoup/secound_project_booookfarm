@@ -68,7 +68,7 @@
 - 장바구니 기능으로는 크게 상품을 추가, 삭제하는 기능, 그리고 보관함에 추가하는 기능이 있고<br>
 - 선택한 상품을 원하는 수량으로 구매할 수 있게하는 기능도 제공합니다.<br>
   <h4>VIEW</h4>
-  <img src="https://user-images.githubusercontent.com/100770645/214567441-ea45935e-841d-4289-9f21-fff29402ab86.PNG" style="width:600px; height:600px;">
+  <img src="https://user-images.githubusercontent.com/100770645/214567441-ea45935e-841d-4289-9f21-fff29402ab86.PNG" style="width:700px; height:600px;">
   
   <h5>삭제</h5>
  
@@ -89,26 +89,35 @@
 <details>
     <summary><h4>3. 보관함</h4></summary> 
  
-  - 공통 에러 페이지를 설정해 두지 않으면 웹 컨테이너가 제공하는 기본 에러 페이지가 출력되는데<br>
-  - 해당 페이지 내용에 어떤 오류인지에 대한 정보가 출력되기 때문에 보안상 문제가 있으며<br>
-  - 또 미관상 보기에 좋지 않으니 사용자 편의를 증진 시키기 위해 구현 합니다.<br>
-      <img src="https://user-images.githubusercontent.com/100770645/213181824-19865af6-25a6-4fa8-9f28-7bb03cfe24e3.PNG"><br>
-  - Web.xml에 error-page태그를 활용하여 간단하게 JSP페이지와 연동할 수 있었습니다.<br>
- 
-      <img src="https://user-images.githubusercontent.com/100770645/213184377-75f82821-8377-4916-bc67-415fd624faa4.PNG"><br>
-  - 페이지 오류 발생시 연결해둔 공통 JSP페이지로 자동 넘어가 사용자 편의성을 올릴 수 있었습니다.
+  - 보관함은 사용자가 관심은 있지만 당장 구매하지 않을 상품을 나중에라도 찾기 편하게하기위해 만들었으며<br>
+  - 장바구니에서 위에있는 보관함 아이콘을 클릭하여 접근할 수 있습니다.<br>
+  - 보관함에 상품을 추가해두면 장바구니를 비워둬도 상품을 쉽게 찾을 수 있습니다.<br>
+  - 보관함은 장바구니와 디자인 측면이나 기능적으로 매우 유사한 페이지입니다.<br>
+    <br>
+  <h4>VIEW</h4>
+  <img src="https://user-images.githubusercontent.com/100770645/214783029-88200b36-4047-4ee2-8a3c-4f7685db11c1.PNG" style="width:700px; height:600px;"><br>
+  - 기능은 삭제기능과 수량 가격표기가 있는데 장바구니와 구현 방식은 동일하게 진행하였습니다.  
  </details>
  <details>
     <summary><h4>4. 결제 페이지</h4></summary> 
  
-  - 공통 에러 페이지를 설정해 두지 않으면 웹 컨테이너가 제공하는 기본 에러 페이지가 출력되는데<br>
-  - 해당 페이지 내용에 어떤 오류인지에 대한 정보가 출력되기 때문에 보안상 문제가 있으며<br>
-  - 또 미관상 보기에 좋지 않으니 사용자 편의를 증진 시키기 위해 구현 합니다.<br>
-      <img src="https://user-images.githubusercontent.com/100770645/213181824-19865af6-25a6-4fa8-9f28-7bb03cfe24e3.PNG"><br>
-  - Web.xml에 error-page태그를 활용하여 간단하게 JSP페이지와 연동할 수 있었습니다.<br>
- 
-      <img src="https://user-images.githubusercontent.com/100770645/213184377-75f82821-8377-4916-bc67-415fd624faa4.PNG"><br>
-  - 페이지 오류 발생시 연결해둔 공통 JSP페이지로 자동 넘어가 사용자 편의성을 올릴 수 있었습니다.
+  - 장바구니에서 구매상품과 수량을 선택하고 구매버튼을 누르면 결제페이지에 접근됩니다. <br>
+  - 결제페이지에서 구현한 주요 기능으로는 카카오(Dame)API를 통한 주소설정 기능과 마일리지 적립 및 사용기능,<br>
+  - 마지막으로 아임포트 Open API를 통한 이니시스 결제기능이 있습니다.<br>
+  <br>
+  <h4>VIEW</h4>
+  <상><br>
+  <img src="https://user-images.githubusercontent.com/100770645/214798338-191f134c-550e-40fc-a05e-fd920b0e5482.PNG" style="width:700px; height:600px;">
+  <br>
+  <하><br>
+  <img src="https://user-images.githubusercontent.com/100770645/214798357-019b5302-6c34-4f9d-a10d-b27c79b4f7d6.PNG" style="width:700px; height:600px;">
+  <br>
+  
+  <h5>구매자 정보 및 주소지정</h5>
+  
+  - 
+  <h5>마일리지</h5>
+  <h5>결제</h5>
  </details>
  </details>
  
