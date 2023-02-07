@@ -20,7 +20,7 @@
 - `Java 11`
 - `JDK 11.0.14`
 - **IDE** : Eclipse
-- **Framework** : Spring
+- **Framework** : Spring 5.3.22
 - **Database** : Oracle DB (18c)
 - **ORM** : Mybatis
 
